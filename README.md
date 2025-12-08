@@ -21,6 +21,8 @@ Our team achieved a **final score of 36.94468** on the leaderboard, ranking:
 
 This reflects strong model performance and stability across multiple architectures.
 
+![Score](imgs/score.png)
+
 > *(Score and ranking were recorded during project reporting; leaderboard may later change depending on competition timeline.)*
 
 ---
@@ -74,10 +76,6 @@ CycleGAN performs unpaired translation using:
 CycleGAN is sensitive to learning rate decay and requires batch size = 1,
 consistent with official implementations.
 
-📎 *(Insert training curves using external links if desired)*  
-Example:  
-![CycleGAN FID Curve](https://via.placeholder.com/600x300?text=CycleGAN+FID+Curve)
-
 ---
 
 ### **2️⃣ CUT (Contrastive Unpaired Translation)**
@@ -91,9 +89,6 @@ Key advantages:
 - Better structure retention  
 - Works well on style transfer tasks with strong texture changes  
 
-📎 *(Insert visual comparison via URL)*  
-![CUT Architecture](https://via.placeholder.com/600x300?text=CUT+Architecture)
-
 ---
 
 ### **3️⃣ AttentionGAN**
@@ -105,9 +100,6 @@ AttentionGAN enhances translation using:
 - Region-level style learning  
 
 This often yields more aesthetically pleasing Monet strokes and textures.
-
-📎 Example placeholder:  
-![AttentionGAN](https://via.placeholder.com/600x300?text=AttentionGAN+Example)
 
 ---
 
@@ -121,8 +113,42 @@ This often yields more aesthetically pleasing Monet strokes and textures.
 
 Final generated images demonstrate that all three methods can produce Monet-style transformations with different emphases on texture, structure, and artistic abstraction.
 
-📎 Insert comparison (optional):  
-![Comparison Grid](https://via.placeholder.com/800x350?text=Method+Comparison)
+---
+
+## 🎯 CUT Training Analysis
+
+To further optimize performance, we explored **four different training strategies**
+for CUT. The corresponding FID scores and training curves are summarized below:
+
+| Training Strategy         | FID Score |
+|---------------------------|-----------|
+| Standard Training         | ~1.8      |
+| **Best-Restart**          | ~1.6 (Best) |
+| High-Epoch Pretraining    | ~4.0      |
+| Monet-Finetune            | ~1.8      |
+
+Below are the training curves for each strategy:
+
+### 📌 Standard Training
+![CUT Standard Training](imgs/cut_standard.png)
+
+### ⭐ Best-Restart (Best Performing Strategy)
+This strategy restarts training from the best-performing checkpoint and leads to
+the lowest FID (~1.6), showing improved stability and convergence.
+![CUT Best-Restart](imgs/cut_best_restart.png)
+
+### 🔁 High-Epoch Pretraining
+Pretraining for many epochs before fine-tuning leads to weaker results (~4.0),
+indicating potential overfitting or style drift.
+![CUT High Epoch Pretraining](imgs/cut_pretrain.png)
+
+### 🎨 Monet-Finetune
+Fine-tuning specifically on Monet paintings restores performance to ~1.8 and
+improves style fidelity.
+![CUT Monet Finetune](imgs/cut_monet_finetune.png)
+
+These results highlight the importance of checkpoint selection and staged
+training when using CUT for artistic style transfer tasks.
 
 ---
 
@@ -141,14 +167,14 @@ python src/train_cut.py
 python src/train_attngan.py
 ```
 
-⸻
+---
 
 🙏 Acknowledgements
 
 This project builds on the outstanding work of these open-source implementations:
-	•	CycleGAN – Zhu et al., ICCV 2017
+- CycleGAN – Zhu et al., ICCV 2017
 https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
-	•	CUT – Park et al., ECCV 2020
+- CUT – Park et al., ECCV 2020
 https://github.com/taesungp/contrastive-unpaired-translation
-	•	AttentionGAN – Tang et al., WACV 2021
+- AttentionGAN – Tang et al., WACV 2021
 https://github.com/Ha0Tang/AttentionGAN

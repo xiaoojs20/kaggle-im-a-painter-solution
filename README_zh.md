@@ -24,6 +24,8 @@
 
 该成绩体现了模型在 FID/MI-FID 指标上的表现与稳定性。
 
+![Score](imgs/score.png)
+
 > *(注：竞赛榜单可能随时间更新，此处为当时成绩记录。)*
 
 ---
@@ -119,8 +121,41 @@ painter/
 | **CUT** | 最佳结构保留 | 风格有时略弱 |
 | **AttentionGAN** | 最细腻的局部纹理 | 训练更耗资源 |
 
-对比占位图：  
-![Comparison Grid](https://via.placeholder.com/800x350?text=Comparison)
+
+---
+
+## 🎯 CUT 训练过程分析
+
+为了进一步提升效果，我们针对 CUT 尝试了 **四类训练策略**，并比较了
+对应的 FID 分数与训练曲线。结果如下：
+
+| 训练策略           | FID 分数 |
+|--------------------|----------|
+| 常规技巧调优       | ~1.8     |
+| **Best-Restart**   | ~1.6（最佳） |
+| 杜高等预训练       | ~4.0     |
+| 莫奈画作微调       | ~1.8     |
+
+以下展示四种策略的训练曲线：
+
+### 📌 常规技巧调优
+![CUT Standard Training](imgs/cut_standard.png)
+
+### ⭐ Best-Restart（最佳策略）
+从最佳 checkpoint 重新启动训练，可以显著改善收敛稳定性，
+取得本组实验中最优的 ~1.6 FID。
+![CUT Best-Restart](imgs/cut_best_restart.png)
+
+### 🔁 杜高等预训练
+长周期预训练导致效果变差（~4.0），可能存在过拟合或风格偏移。
+![CUT High Epoch Pretraining](imgs/cut_pretrain.png)
+
+### 🎨 莫奈画作微调
+在真实 Monet 数据上进行微调，可恢复到 ~1.8 水平，风格更贴近真实画作。
+![CUT Monet Finetune](imgs/cut_monet_finetune.png)
+
+上述结果说明：  
+**合理选择 checkpoint、采用分阶段训练策略，对于 CUT 在风格迁移任务中的性能提升非常关键。**
 
 ---
 
@@ -139,15 +174,15 @@ python src/train_cut.py
 python src/train_attngan.py
 ```
 
-
-⸻
+---
 
 🙏 致敬与引用
 
 本项目基于以下优秀论文与开源实现：
-	•	CycleGAN — Zhu et al., ICCV 2017
+
+- CycleGAN — Zhu et al., ICCV 2017
 https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
-	•	CUT — Park et al., ECCV 2020
+- CUT — Park et al., ECCV 2020
 https://github.com/taesungp/contrastive-unpaired-translation
-	•	AttentionGAN — Tang et al., WACV 2021
+- AttentionGAN — Tang et al., WACV 2021
 https://github.com/Ha0Tang/AttentionGAN
