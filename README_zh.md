@@ -190,6 +190,10 @@ python src/train_cut.py
 python src/train_attngan.py
 ```
 
+### 📌 说明  
+- `scripts/` 目录中的训练脚本可作为所有模型的使用示例。  
+- 真实数据集与模型权重文件未包含在仓库中。  
+
 ---
 
 🙏 致敬与引用
