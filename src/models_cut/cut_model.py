@@ -3,7 +3,7 @@ import torch
 from .base_model import BaseModel
 from . import networks
 from .patchnce import PatchNCELoss
-import util.util as util
+import util_cut.util as util
 
 
 class CUTModel(BaseModel):

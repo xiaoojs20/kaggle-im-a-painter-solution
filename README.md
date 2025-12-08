@@ -183,6 +183,10 @@ python src/train_cut.py
 python src/train_attngan.py
 ```
 
+### 📌 Notes  
+- The training shell scripts under `scripts/` serve as usage examples for all
+  models.  
+- Real datasets and checkpoints are **excluded** due to storage limitations.  
 ---
 
 🙏 Acknowledgements
