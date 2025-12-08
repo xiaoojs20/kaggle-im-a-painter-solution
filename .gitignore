@@ -1,8 +1,4 @@
 data/**
-!data/README.md
-!imgs/
-!imgs/**
-!imgs/*.png
 
 checkpoints/
 */checkpoints/
@@ -68,3 +64,11 @@ test/.coverage
 test/data/legacy_serialized.pt
 *~
 .pt
+
+
+
+
+!data/README.md
+!imgs/
+!imgs/**
+!imgs/*.png
