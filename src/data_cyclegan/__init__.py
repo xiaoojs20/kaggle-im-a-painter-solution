@@ -1,6 +1,6 @@
 import importlib
 import torch.utils.data
-from data.base_dataset import BaseDataset
+from data_cyclegan.base_dataset import BaseDataset
 
 
 def find_dataset_using_name(dataset_name):

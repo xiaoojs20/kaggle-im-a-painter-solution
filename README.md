@@ -130,22 +130,38 @@ for CUT. The corresponding FID scores and training curves are summarized below:
 Below are the training curves for each strategy:
 
 ### 📌 Standard Training
-![CUT Standard Training](imgs/cut_standard.png)
+
+<!-- ![CUT Standard Training](imgs/cut_standard.png) -->
+<p align="center">
+  <img src="imgs/cut_standard.png" alt="CUT Standard Training" width="60%">
+</p>
 
 ### ⭐ Best-Restart (Best Performing Strategy)
 This strategy restarts training from the best-performing checkpoint and leads to
 the lowest FID (~1.6), showing improved stability and convergence.
-![CUT Best-Restart](imgs/cut_best_restart.png)
+
+<!-- ![CUT Best-Restart](imgs/cut_best_restart.png) -->
+<p align="center">
+  <img src="imgs/cut_best_restart.png" alt="CUT Standard Training" width="60%">
+</p>
 
 ### 🔁 High-Epoch Pretraining
 Pretraining for many epochs before fine-tuning leads to weaker results (~4.0),
 indicating potential overfitting or style drift.
-![CUT High Epoch Pretraining](imgs/cut_pretrain.png)
+
+<!-- ![CUT High Epoch Pretraining](imgs/cut_pretrain.png) -->
+<p align="center">
+  <img src="imgs/cut_pretrain.png" alt="CUT Standard Training" width="60%">
+</p>
 
 ### 🎨 Monet-Finetune
-Fine-tuning specifically on Monet paintings restores performance to ~1.8 and
-improves style fidelity.
-![CUT Monet Finetune](imgs/cut_monet_finetune.png)
+Fine-tuning specifically on Monet paintings restores performance to ~1.8 and improves style fidelity.
+
+<!-- ![CUT Monet Finetune](imgs/cut_monet_finetune.png) -->
+<p align="center">
+  <img src="imgs/cut_monet_finetune.png" alt="CUT Standard Training" width="60%">
+</p>
+
 
 These results highlight the importance of checkpoint selection and staged
 training when using CUT for artistic style transfer tasks.

@@ -139,20 +139,36 @@ painter/
 以下展示四种策略的训练曲线：
 
 ### 📌 常规技巧调优
-![CUT Standard Training](imgs/cut_standard.png)
+
+<!-- ![CUT Standard Training](imgs/cut_standard.png) -->
+<p align="center">
+  <img src="imgs/cut_standard.png" alt="CUT Standard Training" width="60%">
+</p>
 
 ### ⭐ Best-Restart（最佳策略）
 从最佳 checkpoint 重新启动训练，可以显著改善收敛稳定性，
 取得本组实验中最优的 ~1.6 FID。
-![CUT Best-Restart](imgs/cut_best_restart.png)
+
+<!-- ![CUT Best-Restart](imgs/cut_best_restart.png) -->
+<p align="center">
+  <img src="imgs/cut_best_restart.png" alt="CUT Standard Training" width="60%">
+</p>
 
 ### 🔁 杜高等预训练
 长周期预训练导致效果变差（~4.0），可能存在过拟合或风格偏移。
-![CUT High Epoch Pretraining](imgs/cut_pretrain.png)
+
+<!-- ![CUT High Epoch Pretraining](imgs/cut_pretrain.png) -->
+<p align="center">
+  <img src="imgs/cut_pretrain.png" alt="CUT Standard Training" width="60%">
+</p>
 
 ### 🎨 莫奈画作微调
 在真实 Monet 数据上进行微调，可恢复到 ~1.8 水平，风格更贴近真实画作。
-![CUT Monet Finetune](imgs/cut_monet_finetune.png)
+
+<!-- ![CUT Monet Finetune](imgs/cut_monet_finetune.png) -->
+<p align="center">
+  <img src="imgs/cut_monet_finetune.png" alt="CUT Standard Training" width="60%">
+</p>
 
 上述结果说明：  
 **合理选择 checkpoint、采用分阶段训练策略，对于 CUT 在风格迁移任务中的性能提升非常关键。**

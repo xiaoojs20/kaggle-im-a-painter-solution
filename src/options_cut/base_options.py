@@ -1,6 +1,6 @@
 import argparse
 import os
-from util import util
+from util_cut import util
 import torch
 import models_cut
 import data_cut

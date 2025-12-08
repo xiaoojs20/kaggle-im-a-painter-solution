@@ -1,6 +1,6 @@
 import argparse
 import os
-from util import util
+from util_cyclegan import util
 import torch
 import models
 import data
