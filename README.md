@@ -27,6 +27,14 @@ This reflects strong model performance and stability across multiple architectur
 
 ---
 
+## 🤗 HuggingFace Model Release
+
+Our best-performing CUT generator (Photo → Monet) has been fully open-sourced on HuggingFace:
+
+[![HuggingFace Model](https://img.shields.io/badge/🤗%20HuggingFace-cut--monet--style--transfer-yellow.svg)](https://huggingface.co/xiaoojs20/cut-monet-style-transfer)
+
+---
+
 ## 🚀 Overview
 
 The objective is to train models that generate 7,000–10,000 Monet-style images  

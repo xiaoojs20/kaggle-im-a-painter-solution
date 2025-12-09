@@ -29,6 +29,14 @@
 > *(注：竞赛榜单可能随时间更新，此处为当时成绩记录。)*
 
 ---
+## 🤗 HuggingFace 模型开源发布
+
+我们在 Kaggle 比赛中表现最好的 **CUT Monet 风格迁移模型（Photo → Monet）**  
+已经正式在 HuggingFace 开源：
+
+[![HuggingFace Model](https://img.shields.io/badge/🤗%20HuggingFace-cut--monet--style--transfer-yellow.svg)](https://huggingface.co/xiaoojs20/cut-monet-style-transfer)
+
+---
 
 ## 🏁 竞赛任务简介
 
